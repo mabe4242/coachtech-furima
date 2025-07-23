@@ -1,0 +1,69 @@
+.attendance__alert--success {
+  padding: 10px 30px;
+  border-color: #badbcc;
+  background-color: #d1e7dd;
+  color: #0f5132;
+}
+
+.attendance__alert--danger {
+  padding: 10px 0;
+  border-color: #f5c2c7;
+  background-color: #f8d7da;
+  color: #842029;
+}
+
+.attendance__alert--danger ul {
+  margin: 0;
+}
+
+.attendance__panel {
+  margin: 0 auto;
+  width: 70%;
+}
+
+.attendance__button {
+  width: 100%;
+  text-align: center;
+}
+
+.attendance__button-submit {
+  padding: 5px;
+  width: 30%;
+  height: 50px;
+  border: none;
+  border-radius: 3px;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+}
+
+.attendance__content {
+  margin: 0 auto;
+  padding: 30px 15px;
+  max-width: 1230px;
+}
+
+.attendance-table {
+  margin: 30px auto;
+  width: 70%;
+  text-align: center;
+}
+
+.attendance-table__inner {
+  width: 100%;
+}
+
+.attendance-table__row {
+  border-bottom: 1px solid #ddd;
+}
+
+.attendance-table__header {
+  padding: 12px;
+  width: 20%;
+  font-weight: bold;
+}
+
+.attendance-table__item {
+  padding: 12px;
+  width: 20%;
+}
