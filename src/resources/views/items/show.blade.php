@@ -23,7 +23,7 @@
                 </div>
                 <div class="icon__comment">
                     <img id="" class="comment" src="{{ asset('icons/comment.png') }}" alt="コメントのアイコン画像">
-                    {{-- <span id="" class="count">{{ $item->comments->count() }}</span> --}}
+                    <span id="" class="count">{{ $item->comments->count() }}</span>
                 </div>
             </div>
             <a class="purchase-btn" href="">購入手続きへ</a>
@@ -47,7 +47,7 @@
                 <p class="item-condition">{{ $item->item_condition }}</p>
             </div>
         </div>
-        {{-- <div class="comment__part">
+        <div class="comment__part">
             <h2 class="comment__heading">コメント（{{ $item->comments->count() }}）</h2>
             @foreach ($item->comments as $comment)
                 <div class="user-comment">
@@ -60,7 +60,7 @@
                     </div>
                 </div>
             @endforeach
-        </div> --}}
+        </div>
         <form class="comment-form" action="{{ route('comment.store', $item->id) }}" method="POST">
             @csrf
             <label class="comment__label" for="item-comment">商品へのコメント</label>
