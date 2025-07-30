@@ -13,7 +13,7 @@
 
         <div class="image-area">
             {{-- Javascriptで画像表示の制御 --}}
-            <img src="/img/noimage.png" alt="プロフィール画像" class="image-parts">
+            <img src="/profiles/noimage.png" alt="プロフィール画像" class="image-parts">
             <label class="image-label" for="image">画像を選択する</label>
             <input class="image-select" type="file" name="photo" id="image">
         </div>

@@ -13,6 +13,6 @@ class ProfileController extends Controller
     public function update (Request $request){
         //更新処理
 
-        return view('index');
+        return redirect('/');
     }
 }
