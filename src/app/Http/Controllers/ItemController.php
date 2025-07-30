@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Item;
 use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use App\Services\ImageService;
+use App\Http\Requests\ExhibitionRequest;
 
 class ItemController extends Controller
 {
@@ -20,7 +20,7 @@ class ItemController extends Controller
         return view('items/create', compact('categories'));
     }
 
-    public function store(Request $request){
+    public function store(ExhibitionRequest $request){
         $itemData = $request->only(['name', 'brand_name', 'condition', 'description', 'price']);
         $itemData['user_id'] = Auth::id();
         $imageFile = $request->image_url;
