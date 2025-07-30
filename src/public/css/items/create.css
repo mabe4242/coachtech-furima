@@ -1,0 +1,268 @@
+.create__content {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.create__form {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.create__heading {
+    font-size: 1.8em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.item-image {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.item__label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.image-area {
+    display: flex;
+    width: 100%;
+    height: 150px;
+    border: 1px dashed #5f5f5f;
+    border-radius: 4px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.image-label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ff5555;
+    padding: 10px 20px;
+    border: 2px solid #ff5555;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: transparent;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.image-select {
+    display: none;
+}
+
+.item-detail {
+    display: flex;
+    width: 100%;
+}
+
+.item-detail__heading {
+    display: block;
+    width: 100%;
+    color: #5f5f5f;
+    font-weight: bold;
+    font-size: 1.3rem;
+    border-bottom: 1px solid #5f5f5f;
+    padding-bottom: 5px;
+}
+
+.category-area {
+    display: flex;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    margin-bottom: 25px;
+}
+
+.category__label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.category-btn__parts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: 15px;
+}
+
+.checkbox-btn {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.checkbox-btn input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox-btn span {
+    padding: 3px 16px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    border: 1px solid #ff5555;
+    color: #ff5555;
+    transition: background-color 0.3s, border-color 0.3s;
+    font-size: 0.8em;
+}
+
+.checkbox-btn input[type="checkbox"]:checked + span {
+    background-color: #ff5555;
+    border-color: #ff5555;
+    color: #ffffff;
+}
+
+.condition-area {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin-bottom: 25px;
+}
+
+.condition__ladel {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.condition__input {
+    position: relative;
+    display: inline-block;
+    font-size: 1em;
+    border: 1px solid #5f5f5f;
+    border-radius: 4px;
+    width: 100%;
+    height: 50px;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.condition__input select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: transparent;
+    border: none;
+    width: 100%;
+    height: 100%;
+    font-size: 1em;
+    padding-right: 25px;
+    box-sizing: border-box;
+    cursor: pointer;
+    outline: none;
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #5f5f5f;
+}
+
+.condition__input::after {
+    content: '▼';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 1em;
+    color: #5f5f5f;
+}
+
+.item-description {
+    display: flex;
+    width: 100%;
+}
+
+.item-description__heading {
+    display: block;
+    width: 100%;
+    color: #5f5f5f;
+    font-weight: bold;
+    font-size: 1.3rem;
+    border-bottom: 1px solid #5f5f5f;
+    padding-bottom: 5px;
+}
+
+.create__parts {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+}
+
+.create__label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.create__input {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #5f5f5f;
+    border-radius: 4px;
+    width: 100%;
+    height: 50px;
+    margin-top: 10px;
+}
+
+.error {
+    margin-top: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    color: red;
+}
+
+.submit-btn {
+    margin-top: 25px;
+    background-color: #ff5555;
+    color: #fff;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 12px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.yen-input-wrapper {
+    position: relative;
+}
+
+.yen-input-wrapper::before {
+    content: '¥';
+    position: absolute;
+    top: 58%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #333;
+    font-size: 1em;
+}
+
+.yen-input {
+    padding-left: 20px;
+}
+
+.create__textarea textarea {
+    padding: 10px;
+    font-size: 1.1em;
+    line-height: 1.5;
+    border: 1px solid #5f5f5f;
+    border-radius: 4px;
+    width: 100%;
+    height: 150px;
+    margin-top: 10px;
+    appearance: none;
+    resize: none;
+}

@@ -8,6 +8,7 @@ use App\Http\Controllers\ItemController;
 Route::middleware('auth')->group(function () {
     Route::get('/mypage/profile', [ProfileController::class, 'edit']);
     Route::put('/mypage/profile', [ProfileController::class, 'update']);
+    Route::get('/sell', [ItemController::class, 'create']);
 });
 
 Route::post('/register', [RegisteredUserController::class, 'store'])->middleware(['guest']);
