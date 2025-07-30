@@ -14,3 +14,4 @@ Route::middleware('auth')->group(function () {
 
 Route::post('/register', [RegisteredUserController::class, 'store'])->middleware(['guest']);
 Route::get('/', [ItemController::class, 'index']);
+Route::get('/item/{item_id}', [ItemController::class, 'show'])->name('items.show');

@@ -7,6 +7,7 @@ use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use App\Services\ImageService;
 use App\Http\Requests\ExhibitionRequest;
+use App\Services\CheckFormService;
 
 class ItemController extends Controller
 {
@@ -36,5 +37,14 @@ class ItemController extends Controller
         $item->categories()->attach($categoryIds);
 
         return redirect('/');
+    }
+
+    public function show(int $item_id){
+        //$item = Item::with(['categories', 'comments.user'])->findOrFail($item_id);
+        $item = Item::with('categories')->findOrFail($item_id);
+        $item['tax_price'] = CheckFormService::calcTaxPrice((int)$item->price);
+        $item['item_condition'] = CheckFormService::checkCondition((int)$item->condition);
+        
+        return view('items.show', compact('item'));
     }
 }
