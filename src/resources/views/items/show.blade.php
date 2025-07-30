@@ -61,7 +61,7 @@
                 </div>
             @endforeach
         </div> --}}
-        {{-- <form class="comment-form" action="{{ route('comment.store', $item->id) }}" method="POST">
+        <form class="comment-form" action="{{ route('comment.store', $item->id) }}" method="POST">
             @csrf
             <label class="comment__label" for="item-comment">商品へのコメント</label>
             <div class="item-comment">
@@ -71,7 +71,7 @@
                 <div class="error">{{ $message }}</div>
             @enderror
             <button class="submit-btn" type="submit">コメントを送信する</button>
-        </form> --}}
+        </form>
     </div>
 </div>
 @endsection
