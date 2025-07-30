@@ -11,5 +11,4 @@ Route::middleware('auth')->group(function () {
     Route::put('/mypage/profile', [ProfileController::class, 'update']);
 });
 
-Route::post('/register', [RegisteredUserController::class, 'store'])
-    ->middleware(['guest']);
+Route::post('/register', [RegisteredUserController::class, 'store'])->middleware(['guest']);
