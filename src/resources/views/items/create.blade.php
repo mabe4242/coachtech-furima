@@ -24,14 +24,14 @@
         </div>
         <div class="category-area">
             <p class="category__label">カテゴリー</p>
-            {{-- <div class="category-btn__parts">
+            <div class="category-btn__parts">
                 @foreach($categories as $category)
                     <label class="checkbox-btn">
                         <input type="checkbox" name="categories[]" value="{{ $category->id }}">
                         <span>{{ $category->name }}</span>
                     </label>
                 @endforeach
-            </div> --}}
+            </div>
             @error('categories')
             <div class="error">{{ $message }}</div>
             @enderror

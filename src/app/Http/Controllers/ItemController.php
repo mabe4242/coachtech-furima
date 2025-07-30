@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Item;
+use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use App\Services\ImageService;
 
@@ -15,19 +16,24 @@ class ItemController extends Controller
     }
 
     public function create(){
-        return view('items/create');
+        $categories = Category::all();
+        return view('items/create', compact('categories'));
     }
 
     public function store(Request $request){
-        $item = $request->only(['name', 'brand_name', 'description', 'price']);
-        $item['user_id'] = Auth::id();
+        $itemData = $request->only(['name', 'brand_name', 'condition', 'description', 'price']);
+        $itemData['user_id'] = Auth::id();
         $imageFile = $request->image_url;
-        $item['image_url'] = ImageService::upload($imageFile, 'items');
+        $imagePath = ImageService::upload($imageFile, 'items');
+        if ($imagePath !== null){
+            $itemData['image_url'] = $imagePath;
+        }
+        $item = Item::create($itemData);
 
-        //※カテゴリだけ$itemと別で保存処理必要
-        $item['condition'] = 1;
-
-        Item::create($item);
+        // カテゴリIDの配列を取得（name="categories[]" で送信されたもの）
+        $categoryIds = $request->input('categories', []);
+        // 中間テーブルに登録
+        $item->categories()->attach($categoryIds);
 
         return redirect('/');
     }

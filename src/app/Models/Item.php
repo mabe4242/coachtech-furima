@@ -24,6 +24,10 @@ class Item extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function categories(){
+        return $this->belongsToMany(Category::class, 'category_item', 'item_id', 'category_id');
+    }
+
     public function getImageFullPathAttribute(){
         if (Storage::disk('public')->exists('items/' . $this->image_url)) {
             return asset('storage/items/' . $this->image_url); //本番環境の画像
