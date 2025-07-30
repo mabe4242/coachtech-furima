@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Item;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class ItemController extends Controller
 {
@@ -23,8 +25,16 @@ class ItemController extends Controller
         'price']);
         $item['user_id'] = Auth::id();
 
-        //空のデータにはここでダミーの値を代入する
-        $item['image_url'] = 'test.png';
+        $imageFile = $request->image_url;
+        if(!is_null($imageFile)){
+            $fileName = uniqid(rand().'_');
+            $extension = $imageFile->extension();
+            $fileNameToStore = $fileName. '.' . $extension;
+            $item['image_url'] = $fileNameToStore;
+            $resizedImage = Image::make($imageFile)->fit(800, 800)->encode();
+            Storage::put('public/items/' . $fileNameToStore, $resizedImage );
+        }
+
         //※カテゴリだけ$itemと別で保存処理必要
         $item['condition'] = 1;
 
