@@ -22,13 +22,14 @@
 }
 
 .header-utilities nav {
-  width: 18%;
+  width: 25%;
 }
 
 .header-nav {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  gap: 5px;
 }
 
 .header-nav__link {
@@ -42,4 +43,12 @@
   color: #fff;
   font-size: 16px;
   cursor: pointer;
+}
+
+.sell {
+  margin-left: 8px;
+  padding: 10px 18px;
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 3px;
 }
