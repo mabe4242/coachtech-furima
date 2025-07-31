@@ -1,9 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\RegisteredUserController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RegisteredUserController;
+use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth')->group(function () {
     Route::get('/mypage/profile', [ProfileController::class, 'edit']);
