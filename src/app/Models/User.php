@@ -18,7 +18,8 @@ class User extends Authenticatable
         'password',
     ];
 
-    public function item(){
+    public function item()
+    {
         return $this->hasMany(Item::class);
     }
 
