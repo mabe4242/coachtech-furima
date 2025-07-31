@@ -4,19 +4,18 @@ namespace App\Services;
 
 class CheckFormService 
 {
-    public static function calcTaxPrice(int $data){
-        $tax_price = $data * 1.1;
-        $tax_price = number_format($tax_price);
+    public static function formattedPrice(int $data){
+        $formattedPrice = number_format($data);
 
-        return $tax_price;
+        return $formattedPrice;
     }
 
     public static function checkCondition(int $data){
-        if($data === 1){$item_condition = '良好';}
-        if($data === 2){$item_condition = '目立った傷や汚れなし';}
-        if($data === 3){$item_condition = 'やや傷や汚れあり';}
-        if($data === 4){$item_condition = '状態が悪い';}
+        if($data === 1){$itemCondition = '良好';}
+        if($data === 2){$itemCondition = '目立った傷や汚れなし';}
+        if($data === 3){$itemCondition = 'やや傷や汚れあり';}
+        if($data === 4){$itemCondition = '状態が悪い';}
 
-        return $item_condition;
+        return $itemCondition;
     }
 }

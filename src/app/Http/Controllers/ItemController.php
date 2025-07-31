@@ -41,7 +41,7 @@ class ItemController extends Controller
 
     public function show(int $item_id){
         $item = Item::with(['categories', 'comments.user'])->findOrFail($item_id);
-        $item['tax_price'] = CheckFormService::calcTaxPrice((int)$item->price);
+        $item['tax_price'] = CheckFormService::formattedPrice((int)$item->price);
         $item['item_condition'] = CheckFormService::checkCondition((int)$item->condition);
         
         return view('items.show', compact('item'));
