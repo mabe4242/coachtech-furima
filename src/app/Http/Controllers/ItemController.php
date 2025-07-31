@@ -11,22 +11,27 @@ use Illuminate\Support\Facades\Auth;
 
 class ItemController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $items = Item::with('user')->get();
+
         return view('index', compact('items'));
     }
 
-    public function create(){
+    public function create()
+    {
         $categories = Category::all();
+
         return view('items.create', compact('categories'));
     }
 
-    public function store(ExhibitionRequest $request){
+    public function store(ExhibitionRequest $request)
+    {
         $itemData = $request->only(['name', 'brand_name', 'condition', 'description', 'price']);
         $itemData['user_id'] = Auth::id();
         $imageFile = $request->image_url;
         $imagePath = ImageService::upload($imageFile, 'items');
-        if ($imagePath !== null){
+        if ($imagePath !== null) {
             $itemData['image_url'] = $imagePath;
         }
         $item = Item::create($itemData);
@@ -39,11 +44,12 @@ class ItemController extends Controller
         return redirect('/');
     }
 
-    public function show(int $item_id){
+    public function show(int $item_id)
+    {
         $item = Item::with(['categories', 'comments.user'])->findOrFail($item_id);
-        $item['tax_price'] = CheckFormService::formattedPrice((int)$item->price);
-        $item['item_condition'] = CheckFormService::checkCondition((int)$item->condition);
-        
+        $item['tax_price'] = CheckFormService::formattedPrice((int) $item->price);
+        $item['item_condition'] = CheckFormService::checkCondition((int) $item->condition);
+
         return view('items.show', compact('item'));
     }
 }
