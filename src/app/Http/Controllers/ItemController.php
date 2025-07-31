@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Item;
-use App\Models\Category;
-use Illuminate\Support\Facades\Auth;
-use App\Services\ImageService;
 use App\Http\Requests\ExhibitionRequest;
+use App\Models\Category;
+use App\Models\Item;
 use App\Services\CheckFormService;
+use App\Services\ImageService;
+use Illuminate\Support\Facades\Auth;
 
 class ItemController extends Controller
 {
@@ -18,7 +18,7 @@ class ItemController extends Controller
 
     public function create(){
         $categories = Category::all();
-        return view('items/create', compact('categories'));
+        return view('items.create', compact('categories'));
     }
 
     public function store(ExhibitionRequest $request){
